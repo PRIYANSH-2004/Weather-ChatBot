@@ -94,21 +94,7 @@ export default function MessageInput({ onSend, disabled, isLoading }) {
   return (
     <div className={`border-t ${darkMode ? 'border-gray-700 bg-gray-800' : 'border-gray-200 bg-white'} p-4`}>
       <form onSubmit={handleSubmit} className="flex items-end space-x-3">
-        {/* City Input */}
-        <div className="flex-shrink-0">
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            placeholder="City (optional)"
-            className={`px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-              darkMode 
-                ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
-                : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
-            }`}
-            style={{ width: '120px' }}
-          />
-        </div>
+
 
         {/* Message Input */}
         <div className="flex-1 relative">
@@ -134,33 +120,35 @@ export default function MessageInput({ onSend, disabled, isLoading }) {
           type="button"
           onClick={toggleListening}
           disabled={disabled || isLoading}
-          className={`p-2 rounded-lg transition-colors ${
-            listening 
-              ? 'bg-red-500 hover:bg-red-600 text-white' 
+          className={`
+            relative flex items-center justify-center p-3 rounded-full transition-all duration-300
+            ${listening 
+              ? 'bg-red-500 shadow-lg shadow-red-300/50 hover:bg-red-600' 
               : darkMode 
-                ? 'bg-gray-700 hover:bg-gray-600 text-gray-300' 
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
-          } ${disabled || isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                ? 'bg-gray-700 hover:bg-gray-600 text-gray-300 shadow-md' 
+                : 'bg-gray-100 hover:bg-gray-200 text-gray-600 shadow-sm'}
+            ${disabled || isLoading ? 'opacity-50 cursor-not-allowed' : ''}
+          `}
           title={listening ? 'Stop listening' : 'Start voice input'}
         >
-          <Mic className={`h-5 w-5 ${listening ? 'animate-pulse' : ''}`} />
+          <Mic className={`
+            h-6 w-6 transition-transform duration-300
+            ${listening ? 'animate-pulse text-white scale-110' : ''}
+          `} />
+          {listening && (
+            <span className="absolute top-0 left-0 w-full h-full rounded-full bg-red-400 opacity-20 animate-ping"></span>
+          )}
         </button>
 
+
         {/* Send Button */}
-        <button
-          type="submit"
-          disabled={!text.trim() || disabled || isLoading}
-          className={`p-2 rounded-lg transition-colors ${
-            !text.trim() || disabled || isLoading
-              ? darkMode 
-                ? 'bg-gray-700 text-gray-500 cursor-not-allowed' 
-                : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-              : 'bg-blue-500 hover:bg-blue-600 text-white'
-          }`}
-          title="Send message"
-        >
-          <Send className="h-5 w-5" />
+
+        <button className="bg-purple-500 hover:bg-purple-600 p-3 rounded-full">
+          <Send className="h-6 w-6 text-white" />
         </button>
+
+
+
       </form>
     </div>
   );

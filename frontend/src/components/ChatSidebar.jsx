@@ -263,8 +263,8 @@ export default function ChatSidebar({
           onClick={onNewChat}
           className={`w-full flex items-center justify-center gap-2 p-3 rounded-xl font-medium transition-colors ${
             darkMode
-              ? 'bg-blue-600 hover:bg-blue-700 text-white'
-              : 'bg-blue-500 hover:bg-blue-600 text-white'
+              ? 'bg-purple-600 hover:bg-purple-700 text-white'
+              : 'bg-purple-500 hover:bg-purple-600 text-white'
           }`}
         >
           <PlusIcon className="w-5 h-5" />
@@ -284,8 +284,8 @@ export default function ChatSidebar({
             placeholder="Search chats..."
             className={`w-full pl-10 pr-10 py-2 rounded-lg text-sm transition-colors ${
               darkMode
-                ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500'
-                : 'bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-500 focus:ring-blue-500 focus:border-blue-500'
+                ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500'
+                : 'bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500'
             } border focus:ring-2 focus:ring-opacity-50`}
           />
           <MagnifyingGlassIcon className={`absolute left-3 top-2.5 w-4 h-4 ${
@@ -350,8 +350,8 @@ export default function ChatSidebar({
                       className={`group flex items-center gap-3 p-3 rounded-lg cursor-pointer transition-colors editable-item ${
                         sessionId === currentSessionId
                           ? darkMode
-                            ? 'bg-blue-900/50 border border-blue-700'
-                            : 'bg-blue-50 border border-blue-200'
+                            ? 'bg-purple-900/50 border border-purple-700'
+                            : 'bg-purple-50 border border-purple-200'
                           : darkMode
                             ? 'hover:bg-gray-800'
                             : 'hover:bg-gray-50'
@@ -370,7 +370,7 @@ export default function ChatSidebar({
                               darkMode
                                 ? 'bg-gray-700 border-gray-600 text-white'
                                 : 'bg-white border-gray-300 text-gray-900'
-                            } focus:ring-2 focus:ring-blue-500 focus:border-blue-500`}
+                            } focus:ring-2 focus:ring-purple-500 focus:border-purple-500`}
                             onClick={(e) => e.stopPropagation()}
                           />
                         ) : (
@@ -378,8 +378,8 @@ export default function ChatSidebar({
                             <div className={`text-sm font-medium truncate ${
                               sessionId === currentSessionId
                                 ? darkMode
-                                  ? 'text-blue-300'
-                                  : 'text-blue-700'
+                                  ? 'text-purple-300'
+                                  : 'text-purple-700'
                                 : darkMode
                                   ? 'text-gray-200'
                                   : 'text-gray-900'
@@ -389,8 +389,8 @@ export default function ChatSidebar({
                             <div className={`text-xs truncate mt-0.5 ${
                               sessionId === currentSessionId
                                 ? darkMode
-                                  ? 'text-blue-400'
-                                  : 'text-blue-600'
+                                  ? 'text-purple-400'
+                                  : 'text-purple-600'
                                 : darkMode
                                   ? 'text-gray-500'
                                   : 'text-gray-500'

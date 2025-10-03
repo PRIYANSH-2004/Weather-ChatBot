@@ -40,12 +40,19 @@ export default function VoiceInputButton({
     recognition.interimResults = false;
     recognition.lang = lang || 'en-US';
 
+    let silenceTimeout;
+
     recognition.onstart = () => {
       setListening(true);
       console.log('Voice recognition started. Language:', lang);
+      // Start silence timer
+      silenceTimeout = setTimeout(() => {
+        recognition.stop();
+      }, 2000);
     };
 
     recognition.onresult = (event) => {
+      clearTimeout(silenceTimeout);
       const transcript = event.results[0][0].transcript;
       console.log('Voice transcript:', transcript);
       if (onResult) {
@@ -53,19 +60,29 @@ export default function VoiceInputButton({
       }
     };
 
+    recognition.onspeechend = () => {
+      // If speech ends, start silence timer
+      silenceTimeout = setTimeout(() => {
+        recognition.stop();
+      }, 2000);
+    };
+
     recognition.onerror = (event) => {
+      clearTimeout(silenceTimeout);
       console.error('Speech recognition error', event.error);
       setListening(false);
       alert(`Voice recognition error: ${event.error}`);
     };
 
     recognition.onend = () => {
+      clearTimeout(silenceTimeout);
       setListening(false);
     };
 
     try {
       recognition.start();
     } catch (err) {
+      clearTimeout(silenceTimeout);
       console.error('Error starting speech recognition:', err);
       setListening(false);
     }

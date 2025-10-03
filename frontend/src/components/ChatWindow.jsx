@@ -58,8 +58,8 @@ export default function ChatWindow({ messages, isLoading }) {
                   className={`max-w-[80%] p-4 rounded-2xl shadow-sm ${
                     message.role === 'user'
                       ? darkMode
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-blue-500 text-white'
+                        ? 'bg-purple-600 text-white'
+                        : 'bg-purple-500 text-white'
                       : darkMode
                         ? 'bg-gray-800 text-gray-100 border border-gray-700'
                         : 'bg-white text-gray-900 border border-gray-200'
@@ -71,7 +71,7 @@ export default function ChatWindow({ messages, isLoading }) {
                   <div
                     className={`text-xs mt-2 opacity-70 ${
                       message.role === 'user'
-                        ? 'text-blue-100'
+                        ? 'text-purple-100'
                         : darkMode
                           ? 'text-gray-400'
                           : 'text-gray-500'

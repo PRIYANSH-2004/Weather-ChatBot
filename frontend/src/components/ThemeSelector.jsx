@@ -3,12 +3,12 @@ import { Palette } from 'lucide-react';
 import { ThemeContext } from '../App';
 
 const THEMES = [
-  { id: 'travel', name: 'Travel', icon: '✈️', description: 'Trip planning & destinations' },
-  { id: 'fashion', name: 'Fashion', icon: '👔', description: 'Outfit recommendations' },
-  { id: 'sports', name: 'Sports', icon: '🏃', description: 'Activity suggestions' },
-  { id: 'agriculture', name: 'Agriculture', icon: '🌾', description: 'Farming advice' },
-  { id: 'events', name: 'Events', icon: '🎉', description: 'Event planning' },
-  { id: 'health', name: 'Health', icon: '💊', description: 'Wellness tips' }
+  { id: 'travel', name: 'Travel' , description: 'Trip planning & destinations' },
+  { id: 'fashion', name: 'Fashion' , description: 'Outfit recommendations' },
+  { id: 'sports', name: 'Sports' , description: 'Activity suggestions' },
+  // { id: 'agriculture', name: 'Agriculture' , description: 'Farming advice' },
+  { id: 'events', name: 'Events' , description: 'Event planning' },
+  { id: 'health', name: 'Health' , description: 'Wellness tips' }
 ];
 
 export default function ThemeSelector() {

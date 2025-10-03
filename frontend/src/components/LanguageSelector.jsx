@@ -4,22 +4,16 @@ import { CheckIcon, ChevronDownIcon } from '@heroicons/react/20/solid';
 import { ThemeContext } from '../App';
 
 const languages = [
-  { id: 'en-US', name: 'English', flag: '🇺🇸' },
   { id: 'ja-JP', name: '日本語', flag: '🇯🇵' },
-  { id: 'es-ES', name: 'Español', flag: '🇪🇸' },
+  { id: 'en-US', name: 'English', flag: '🇺🇸' },
+  { id: 'hi-IN', name: 'हिंदी', flag: '🇮🇳' },
   { id: 'fr-FR', name: 'Français', flag: '🇫🇷' },
   { id: 'de-DE', name: 'Deutsch', flag: '🇩🇪' },
-  { id: 'ko-KR', name: '한국어', flag: '🇰🇷' },
-  { id: 'zh-CN', name: '中文', flag: '🇨🇳' },
-  { id: 'it-IT', name: 'Italiano', flag: '🇮🇹' },
-  { id: 'pt-BR', name: 'Português', flag: '🇧🇷' },
-  { id: 'ru-RU', name: 'Русский', flag: '🇷🇺' },
 ];
 
 export default function LanguageSelector() {
   const [isOpen, setIsOpen] = useState(false);
-  const { darkMode, lang, setLang } = useContext(ThemeContext); // Get from context
-
+  const { darkMode, lang, setLang} = useContext(ThemeContext); // Get from context
   const selectedLanguage = languages.find(l => l.id === lang) || languages[0];
 
   const handleChange = (language) => {

@@ -13,7 +13,8 @@ export default function Header({
 }) {
   const {
     darkMode,
-    setDarkMode
+    setDarkMode,
+    city
   } = useContext(ThemeContext);
 
   return (
@@ -40,17 +41,23 @@ export default function Header({
           <h1 className={`font-semibold text-lg truncate max-w-48 ${
             darkMode ? 'text-white' : 'text-gray-900'
           }`}>
-            {sessionName}
+            {/* {sessionName} */}
+            🌈 AtmosAI
           </h1>
         </div>
 
         {/* Right Section */}
         <div className="flex items-center gap-2">
+            <div className="inline-block bg-gray-100 text-gray-800 px-4 py-2 rounded-md shadow-md">
+              {city ? city : "Location 📍"}
+            </div>
+
           <LanguageSelector />
           <ThemeSelector />
           
           {/* Voice Toggle */}
-          <button
+          
+          {/* <button
             onClick={onToggleVoice}
             className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
               isVoiceEnabled
@@ -71,20 +78,26 @@ export default function Header({
             <span className="hidden sm:inline">
               Voice {isVoiceEnabled ? 'On' : 'Off'}
             </span>
-          </button>
+          </button> */}
           
           {/* Dark/Light Mode Toggle */}
           <button
-            onClick={() => setDarkMode(!darkMode)}
-            className={`p-2 rounded-lg transition-colors ${
-              darkMode
-                ? 'hover:bg-gray-700 text-yellow-400'
-                : 'hover:bg-gray-100 text-gray-600'
-            }`}
-            aria-label="Toggle theme"
-          >
-            {darkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+      onClick={() => setDarkMode(!darkMode)}
+      className={`relative w-16 h-8 flex items-center rounded-full p-1 transition-colors duration-500 ${
+        darkMode ? "bg-gray-700" : "bg-yellow-300"
+      }`}
+      aria-label="Toggle theme"
+    >
+      {/* Sliding circle */}
+      <div
+        className={`absolute w-6 h-6 rounded-full bg-white shadow-md transform transition-transform duration-500 ${
+          darkMode ? "translate-x-8" : "translate-x-0"
+        } flex items-center justify-center`}
+      >
+        {darkMode ? <Sun size={16} className="text-yellow-400" /> : <Moon size={16} className="text-gray-700" />}
+      </div>
+    </button>
+          
         </div>
       </div>
     </header>
