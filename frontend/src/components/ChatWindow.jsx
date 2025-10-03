@@ -1,5 +1,6 @@
 import { useEffect, useRef, useContext } from 'react';
 import { ThemeContext } from '../App';
+import WeatherModal from './WeatherModal';
 
 export default function ChatWindow({ messages, isLoading }) {
   const messagesEndRef = useRef(null);
@@ -111,6 +112,8 @@ export default function ChatWindow({ messages, isLoading }) {
                 </div>
               </div>
             )}
+
+            <WeatherModal/>
             <div ref={messagesEndRef} />
           </div>
         )}

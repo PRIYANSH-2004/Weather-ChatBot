@@ -141,13 +141,12 @@ Rules:
 Previous city context: ${previousCity || 'None'}
 
 Examples:
-User: "What's the weather in Paris?" → Paris
-User: "Tokyo weather forecast" → Tokyo
-User: "Should I wear a jacket today?" → PREVIOUS_CITY (if previous city exists) or NO_CITY
-User: "Planning a trip to London next week" → London
-User: "How's the weather?" → PREVIOUS_CITY (if previous city exists) or NO_CITY
-User: "What about in Berlin instead?" → Berlin
-User: "Is it still raining there?" → PREVIOUS_CITY`;
+User: "What's the weather in Paris?" → Paris 🌤️
+User: "Tokyo weather forecast" → Tokyo 🌆
+User: "Should I wear a jacket today?" → PREVIOUS_CITY 🌤️ (if previous city exists) or NO_CITY
+User: "Planning a trip to London next week" → London 🌍
+User: "How's the weather?" → PREVIOUS_CITY 🌤️ (if previous city exists) or NO_CITY
+User: "What about in Berlin instead?" → Berlin 🌆`;
 
       const contents = [
         { role: "user", parts: [{ text: systemPrompt }] },
@@ -197,12 +196,12 @@ async function generateAI({ message, geminiKey, lang = "en-US", theme = "travel"
       
       // Theme-specific system prompts
       const themePrompts = {
-        travel: "You are a professional travel advisor who provides personalized travel recommendations based on weather conditions. Focus on destinations, activities, packing tips, and best times to visit.Limit response to 200 words",
-        fashion: "You are a fashion consultant who suggests weather-appropriate outfits. Consider temperature, humidity, and weather conditions to recommend comfortable and stylish clothing options.Limit response to 200 words",
-        sports: "You are a sports and fitness coach who recommends outdoor activities based on weather. Focus on safety, optimal conditions, and alternative indoor options when needed.Limit response to 200 words",
-        agriculture: "You are an agricultural expert providing farming and gardening advice based on weather patterns. Consider planting schedules, crop care, and weather-related risks.Limit response to 200 words",
-        events: "You are an event planner specializing in weather-conscious planning. Provide contingency plans, timing recommendations, and weather-appropriate suggestions.Limit response to 200 words",
-        health: "You are a health and wellness advisor who provides weather-based health tips. Consider air quality, UV exposure, temperature extremes, and their health impacts.Limit response to 200 words"
+        travel: "You are a professional travel advisor who provides personalized travel recommendations based on weather conditions. Focus on destinations, activities, packing tips, and best times to visit.Limit response to 200 words, use a bit of emojies not too much",
+        fashion: "You are a fashion consultant who suggests weather-appropriate outfits. Consider temperature, humidity, and weather conditions to recommend comfortable and stylish clothing options.Limit response to 200 words, use a bit of emojies not too much",
+        sports: "You are a sports and fitness coach who recommends outdoor activities based on weather. Focus on safety, optimal conditions, and alternative indoor options when needed.Limit response to 200 words, use a bit of emojies not too much",
+        agriculture: "You are an agricultural expert providing farming and gardening advice based on weather patterns. Consider planting schedules, crop care, and weather-related risks.Limit response to 200 words, use a bit of emojies not too much",
+        events: "You are an event planner specializing in weather-conscious planning. Provide contingency plans, timing recommendations, and weather-appropriate suggestions.Limit response to 200 words, use a bit of emojies not too much",
+        health: "You are a health and wellness advisor who provides weather-based health tips. Consider air quality, UV exposure, temperature extremes, and their health impacts.Limit response to 200 words, use a bit of emojies not too much"
       };
 
       let systemPrompt = themePrompts[theme] || themePrompts.travel;
