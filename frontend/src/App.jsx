@@ -317,13 +317,13 @@
 
 // export default App;
 import React, { useState, createContext, useEffect, useRef } from 'react';
-// import Header from './components/Header';
-// import ChatSidebar from './components/ChatSidebar';
+import Header from './components/Header';
+import ChatSidebar from './components/ChatSidebar';
 import ChatWindow from './components/ChatWindow';
-// import MessageInput from './components/MessageInput';
-// import WeatherModal from './components/WeatherModal';
-// import EmptyChat from './components/EmptyChat';
-// import api from './api';
+import MessageInput from './components/MessageInput';
+import WeatherModal from './components/WeatherModal';
+import EmptyChat from './components/EmptyChat';
+import api from './api';
 
 export const ThemeContext = createContext();
 
