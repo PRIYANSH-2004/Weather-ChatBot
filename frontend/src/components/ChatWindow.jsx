@@ -30,6 +30,7 @@ export default function ChatWindow({ messages, isLoading }) {
     <div className={`flex-1 overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
       {/* Messages Area - Only this scrolls */}
       <div className="h-full overflow-y-auto px-4 py-4">
+      <h1>hello</h1>
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center">
             <div className={`text-6xl mb-4 ${darkMode ? 'text-gray-600' : 'text-gray-400'}`}>
