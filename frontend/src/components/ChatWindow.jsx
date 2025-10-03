@@ -80,6 +80,25 @@ export default function ChatWindow({ messages, isLoading }) {
                   >
                     {formatTime(message.timestamp)}
                   </div>
+                  {/* Weather Card for AI messages with weather data */}
+                  {message.role === 'assistant' && message.weather && (
+                    <div className={`mt-4 p-4 rounded-xl shadow border ${
+                      darkMode ? 'bg-gray-900 border-gray-700 text-gray-100' : 'bg-blue-50 border-blue-200 text-gray-900'
+                    }`}>
+                      <div className="font-bold text-lg mb-2">{message.city || 'Weather Details'}</div>
+                      <div className="flex flex-wrap gap-4">
+                        <div>
+                          <span className="font-semibold">Temperature:</span> {message.weather.temp}°C
+                        </div>
+                        <div>
+                          <span className="font-semibold">Humidity:</span> {message.weather.humidity}%
+                        </div>
+                        <div>
+                          <span className="font-semibold">Wind:</span> {message.weather.wind} km/h
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -113,7 +132,6 @@ export default function ChatWindow({ messages, isLoading }) {
               </div>
             )}
 
-            <WeatherModal/>
             <div ref={messagesEndRef} />
           </div>
         )}
