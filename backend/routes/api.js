@@ -205,7 +205,7 @@ async function generateAI({ message, geminiKey, lang = "en-US", theme = "travel"
       };
 
       let systemPrompt = themePrompts[theme] || themePrompts.travel;
-      
+       
       // Add weather context if provided - More detailed weather integration
       if (weather && city) {
         const weatherInfo = `\n\nCurrent weather conditions in ${city}:
